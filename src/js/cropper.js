@@ -88,7 +88,7 @@ class Cropper {
       }
 
       // e.g.: "http://example.com/img/picture.jpg"
-      url = element.src;
+      url = element.currentSrc || element.src;
     } else if (tagName === 'canvas' && window.HTMLCanvasElement) {
       url = element.toDataURL();
     }
@@ -261,7 +261,7 @@ class Cropper {
       }
     };
 
-    sizingImage.src = image.src;
+    sizingImage.src = image.currentSrc || image.src;
 
     // iOS Safari will convert the image automatically
     // with its orientation once append it into DOM (#279)
